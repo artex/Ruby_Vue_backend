@@ -15,7 +15,6 @@ class ApplicantController < ApplicationController
         end
     end
     def create
-        # render json: params
         if params[:filename]
             name = params[:filename].original_filename
             path = File.join("app", "assets" , "images", name)
@@ -29,9 +28,6 @@ class ApplicantController < ApplicationController
         @applicant.save
     end
     def details
-        # @applicant = Applicant.find(params[:id])
-        # photoname = @applicant[:profile_photo]
-        # render json: @applicant
         @applicant = Applicant.find(params[:id])
         photoname = @applicant.profile_photo
 
@@ -46,7 +42,6 @@ class ApplicantController < ApplicationController
     def destroy
         @applicant = Applicant.find(params[:id])
         @applicant.destroy
-        # render json: { "name":"hello"};
     end
 
 
